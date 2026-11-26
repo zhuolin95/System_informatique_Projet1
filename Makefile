@@ -1,8 +1,12 @@
+
 CC = gcc
 CFLAGS = -O0 -Wall -Wextra -pthread
 
-	PART1_SRCS = src/part1/philosophes.c src/part1/producer_consumer.c 
-	
+PART1_SRCS = src/part1/philosophes.c \
+             src/part1/producer_consumer.c \
+             src/part1/reader_writer.c
+
+PART2_SRCS =
 
 SRCS = $(PART1_SRCS) $(PART2_SRCS)
 TARGETS = $(SRCS:.c=)
@@ -13,7 +17,7 @@ all: $(TARGETS)
 	$(CC) $(CFLAGS) $< -o $@
 
 test: all
-	chmod +x experiments.sh src/part1/*.sh src/part2/*.sh src/part2/tas/*.sh src/part2/tatas/*.sh 2>/dev/null || true
+	chmod +x experiments.sh src/part1/benchmark_part1.sh
 	./experiments.sh
 
 clean:
