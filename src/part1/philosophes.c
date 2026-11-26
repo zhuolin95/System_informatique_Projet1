@@ -1,5 +1,5 @@
 #include <pthread.h>
-#include <Stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #define cycles 1000000
@@ -15,7 +15,7 @@ void* philosopher(void* arg){
     for(int i=0; i<cycles; i++){
         if(left<right){
             pthread_mutex_lock(&chopsticks[left]);
-            pthread_mutex_lokc(&chopsticks[right]);
+            pthread_mutex_lock(&chopsticks[right]);
         }else{
             pthread_mutex_lock(&chopsticks[right]);
             pthread_mutex_lock(&chopsticks[left]);
